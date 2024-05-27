@@ -1,0 +1,21 @@
+clear all
+N=3;
+i=sqrt(-1);
+x0=1;
+x1=2;
+x2=-1;
+Ck=[ ];
+for k=0:1:11
+c=(1/N)*(x0+(x1*(exp(-i*2*pi*k/N)))+(x2*(exp(-i*4*pi*k/N))));
+Ck=[Ck,c];
+end
+k=0:1:11;
+Ck
+Mag_of_Ck=abs(Ck)
+Pha_of_Ck=angle(Ck)
+subplot(2,1,1),stem(k, Mag_of_Ck);
+xlabel('k'),ylabel('magnitude of ck');
+subplot(2,1,2),stem(k, Pha_of_Ck);
+xlabel('k'),ylabel('Phase of ck in rad.');
+
+

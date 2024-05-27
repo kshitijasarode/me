@@ -1,0 +1,11 @@
+%**Program to determine inverse Laplace transform
+clear all;
+Syms s complex;
+X=2/(s* (s + 1) * (s+2))
+disp('Inverse Laplace transform of 2 / (s(s + 1)(s + 2)) is' )
+x=ilaplace(X);
+simplify (x)
+X=2/(s*(s+1)*(s + 2)^2)
+disp('Inverse Laplace transform of 2 / (s(s + 1) (s + 2) 2) i s' ) ;
+x=ilaplace(X);
+simplify (x)

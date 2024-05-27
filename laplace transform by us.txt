@@ -1,0 +1,58 @@
+clear all;
+clc;
+% Define the Laplace transform functions
+f_t = @(s) 1 ./ s.^2; % Laplace Transform of "t"
+f_exp_at = @(s, a) 1 ./ (s + a); % Laplace Transform of "exp(-a*t)"
+f_t_exp_at = @(s, a) 1 ./ (s + a).^2; % Laplace Transform of "t*exp(-
+a*t)"
+f_cos_ot = @(s, o) s ./ (s.^2 + o.^2); % Laplace Transform of
+"cos(o*t)"
+f_sinh_ot = @(s, o) o ./ (s.^2 - o.^2); % Laplace Transform of
+"sinh(o*t)"
+f_exp_at_sin_ot = @(s, a, o) o ./ ((s + a).^2 + o.^2); % Laplace
+Transform of "exp(-a*t)*sin(o*t)"
+f_tn = @(s, n) gamma(n + 1) ./ s.^(n + 1); % Laplace Transform of
+"t^n"
+% Define the range for s
+s = linspace(1, 10, 1000);
+a = 1; % Example value for a
+o = 2; % Example value for o
+n_val = 3; % Example value for n
+% Plotting
+figure;
+subplot(4, 2, 1);
+plot(s, abs(f_t(s)));
+title('Magnitude of Laplace Transform of t');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 2);
+plot(s, abs(f_exp_at(s, a)));
+title('Magnitude of Laplace Transform of exp(-a*t)');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 3);
+plot(s, abs(f_t_exp_at(s, a)));
+title('Magnitude of Laplace Transform of t*exp(-a*t)');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 4);
+plot(s, abs(f_cos_ot(s, o)));
+title('Magnitude of Laplace Transform of cos(o*t)');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 5);
+plot(s, abs(f_sinh_ot(s, o)));
+title('Magnitude of Laplace Transform of sinh(o*t)');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 6);
+plot(s, abs(f_exp_at_sin_ot(s, a, o)));
+title('Magnitude of Laplace Transform of exp(-a*t)*sin(o*t)');
+xlabel('s');
+ylabel('|F(s)|');
+subplot(4, 2, 7);
+plot(s, abs(f_tn(s, n_val)));
+title(['Magnitude of Laplace Transform of t^'
+, num2str(n_val)]);
+xlabel('s');
+ylabel('|F(s)|');

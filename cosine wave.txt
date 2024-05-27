@@ -1,0 +1,8 @@
+clc
+f=0.1;
+t=0:0.1:10;
+a=5*cos(2*pi*f*t);
+plot(t,a,'r');
+xlabel('time');
+ylabel('amplitude');
+title('cosine CT Signal');
